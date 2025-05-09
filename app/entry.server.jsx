@@ -13,7 +13,11 @@ export default async function handleRequest(
   responseHeaders,
   remixContext,
 ) {
-  addDocumentResponseHeaders(request, responseHeaders);
+  //addDocumentResponseHeaders(request, responseHeaders);
+  const shopifyHeaders = addDocumentResponseHeaders();
+for (const [key, value] of Object.entries(shopifyHeaders)) {
+  responseHeaders.set(key, value);
+}
   const userAgent = request.headers.get("user-agent");
   const callbackName = isbot(userAgent ?? "") ? "onAllReady" : "onShellReady";
 
