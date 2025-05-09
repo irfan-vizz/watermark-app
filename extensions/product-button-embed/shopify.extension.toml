@@ -1,0 +1,10 @@
+name = "Product Button Embed"
+type = "theme_app_extension"
+handle = "product-button-embed"
+
+[blocks]
+  [blocks.product-button]
+  name = "Product Button"
+  target = "product"
+  type = "liquid"
+

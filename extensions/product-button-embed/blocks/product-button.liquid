@@ -1,0 +1,63 @@
+<script>
+    (async function () {
+      try {
+        const productId = {{ product.id | json }};
+        const response = await fetch("https://dbfc-39-41-157-90.ngrok-free.app/api/selected-products");
+  
+        if (!response.ok) {
+          throw new Error("Failed to fetch wishlist products");
+        }
+
+        console.log("Wishlist Products reddddd:", response);
+        const wishlistProductIds = await response.json();
+        console.log("Wishlist Products:", wishlistProductIds);
+  
+        if (wishlistProductIds.includes(productId)) {
+          const button = document.createElement("button");
+          button.textContent = "Added to Wishlist";
+          button.style.cssText = "background: #ff5722; color: white; padding: 10px; border: none; cursor: pointer;";
+          
+          document.querySelector(".product-form")?.appendChild(button);
+        }
+      } catch (error) {
+        console.error("Error fetching wishlist products:", error);
+      }
+    })();
+  </script>
+  
+  {% schema %}
+  {
+    "name": "Product Wishlist Button",
+    "target": "section",
+    "settings": [],
+    "templates": ["product"]
+  }
+  {% endschema %}
+  
+    
+
+{% comment %} <script>
+    (async function () {
+      const productId = {{ product.id | json }};
+      const response = await fetch("https://your-remix-app.com/api/selected-products");
+      const selectedProductIds = await response.json();
+    
+      if (selectedProductIds.includes(productId)) {
+        const button = document.createElement("button");
+        button.textContent = "I am coming from app";
+        button.style.cssText = "background: #ff5722; color: white; padding: 10px; border: none; cursor: pointer;";
+        
+        // Append to the product form or another appropriate location
+        document.querySelector(".product-form")?.appendChild(button);
+      }
+    })();
+    </script> {% endcomment %}
+    
+    {% comment %} {% schema %}
+{
+  "name": "Product Button",
+  "target": "section",
+  "settings": [],
+  "templates": ["product"]
+}
+{% endschema %} {% endcomment %}
