@@ -14,10 +14,13 @@ export default async function handleRequest(
   remixContext,
 ) {
   //addDocumentResponseHeaders(request, responseHeaders);
-  const shopifyHeaders = addDocumentResponseHeaders();
-for (const [key, value] of Object.entries(shopifyHeaders)) {
-  responseHeaders.set(key, value);
-}
+  if (request?.url) {
+    try {
+      addDocumentResponseHeaders(request, responseHeaders);
+    } catch (err) {
+      console.error("Failed to add Shopify headers:", err);
+    }
+  }
   const userAgent = request.headers.get("user-agent");
   const callbackName = isbot(userAgent ?? "") ? "onAllReady" : "onShellReady";
 
