@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "c53e6a6a7cbef87fe8af45ba3b342786"
-application_url = "https://resolution-js-rand-cornell.trycloudflare.com"
+application_url = "https://watermark-app-kudh.vercel.app"
 embedded = true
 name = "testing-app"
 handle = "testing-app-918"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://resolution-js-rand-cornell.trycloudflare.com/auth/callback",
-  "https://resolution-js-rand-cornell.trycloudflare.com/auth/shopify/callback",
-  "https://resolution-js-rand-cornell.trycloudflare.com/api/auth/callback"
+  "https://watermark-app-kudh.vercel.app/auth/callback",
+  "https://watermark-app-kudh.vercel.app/auth/shopify/callback",
+  "https://watermark-app-kudh.vercel.app/api/auth/callback"
 ]
 
 [pos]
